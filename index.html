@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site en construction</title>
+  <meta name="description" content="Notre site est en cours de construction. Revenez bientôt !">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚧</text></svg>">
+  <style>
+    :root {
+      --bg: #f6f5f1;
+      --bg-accent: #ece9df;
+      --text: #1d1d1b;
+      --muted: #5f5e58;
+      --accent: #e8a317;
+      --accent-dark: #1d1d1b;
+      --card: #ffffff;
+      --border: #dedbd0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #131312;
+        --bg-accent: #1c1c1a;
+        --text: #f1efe8;
+        --muted: #a6a49c;
+        --accent: #f2b632;
+        --accent-dark: #131312;
+        --card: #1f1f1d;
+        --border: #34332f;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Bande de chantier */
+    .tape {
+      height: 14px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--accent) 0 18px,
+        var(--accent-dark) 18px 36px
+      );
+      background-size: 51px 14px;
+      animation: slide 1.6s linear infinite;
+    }
+    @keyframes slide { to { background-position: 51px 0; } }
+
+    main {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 48px 16px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      text-align: center;
+    }
+
+    .icon {
+      display: block;
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 32px;
+    }
+    .icon .gear { transform-origin: 60px 60px; animation: spin 8s linear infinite; }
+    .icon .gear-small { transform-origin: 88px 88px; animation: spin 5s linear infinite reverse; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    h1 span { color: var(--accent); }
+
+    p.lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 440px;
+      margin: 0 auto 36px;
+    }
+
+    .progress {
+      height: 8px;
+      background: var(--bg-accent);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      max-width: 360px;
+      margin: 0 auto 12px;
+    }
+    .progress > div {
+      height: 100%;
+      width: 40%;
+      background: var(--accent);
+      border-radius: 999px;
+      animation: load 2.4s ease-in-out infinite;
+    }
+    @keyframes load {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(250%); }
+    }
+    .progress-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .contact {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .contact a {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid var(--accent);
+    }
+    .contact a:hover { color: var(--accent); }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 20px 16px 28px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; }
+      .progress > div { width: 60%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="tape" aria-hidden="true"></div>
+
+  <main>
+    <div class="card">
+      <svg class="icon" viewBox="0 0 120 120" aria-hidden="true">
+        <g class="gear" fill="var(--accent)">
+          <path d="M53 8h14l2 12a41 41 0 0 1 10 4l10-7 10 10-7 10a41 41 0 0 1 4 10l12 2v14l-12 2a41 41 0 0 1-4 10l7 10-10 10-10-7a41 41 0 0 1-10 4l-2 12H53l-2-12a41 41 0 0 1-10-4l-10 7-10-10 7-10a41 41 0 0 1-4-10L12 67V53l12-2a41 41 0 0 1 4-10l-7-10 10-10 10 7a41 41 0 0 1 10-4z"/>
+          <circle cx="60" cy="60" r="16" fill="var(--bg)"/>
+        </g>
+        <g class="gear-small" fill="var(--text)">
+          <path d="M84 70h8l1 6a18 18 0 0 1 5 2l5-4 6 6-4 5a18 18 0 0 1 2 5l6 1v8l-6 1a18 18 0 0 1-2 5l4 5-6 6-5-4a18 18 0 0 1-5 2l-1 6h-8l-1-6a18 18 0 0 1-5-2l-5 4-6-6 4-5a18 18 0 0 1-2-5l-6-1v-8l6-1a18 18 0 0 1 2-5l-4-5 6-6 5 4a18 18 0 0 1 5-2z"/>
+          <circle cx="88" cy="88" r="7" fill="var(--bg)"/>
+        </g>
+      </svg>
+
+      <span class="badge">En construction</span>
+
+      <h1>Quelque chose de nouveau <span>arrive bientôt</span></h1>
+
+      <p class="lead">
+        Notre site est en cours de construction. Nous travaillons dur pour vous
+        offrir une nouvelle expérience. Merci de votre patience&nbsp;!
+      </p>
+
+      <div class="progress" role="progressbar" aria-label="Travaux en cours"><div></div></div>
+      <p class="progress-label">Travaux en cours…</p>
+
+      <div class="contact">
+        Une question&nbsp;? Écrivez-nous à
+        <a href="mailto:contact@votre-domaine.com">contact@votre-domaine.com</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; <span id="year">2026</span> — Tous droits réservés
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

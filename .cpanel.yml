@@ -1,0 +1,7 @@
+---
+# Déploiement automatique via cPanel > Git Version Control
+# Copie la page "en construction" dans public_html.
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html/
+    - /bin/cp index.html $DEPLOYPATH
